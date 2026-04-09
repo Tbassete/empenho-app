@@ -1,38 +1,290 @@
-.App {
-  text-align: center;
+/* App.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: #F4F5F7;
+  color: #2D3438;
   min-height: 100vh;
+}
+
+/* Container principal */
+.home-container {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título */
+.home-titulo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2D3438;
+  margin-bottom: 8px;
+  border-left: 4px solid #E62738;
+  padding-left: 12px;
+}
+
+.home-subtitulo {
+  font-size: 14px;
+  color: #8C8C8C;
+  margin-bottom: 24px;
+  padding-left: 16px;
+}
+
+/* Estados de loading e erro */
+.home-loading,
+.home-vazio {
+  text-align: center;
+  padding: 48px;
+  color: #8C8C8C;
+  font-size: 16px;
+}
+
+.home-erro {
+  text-align: center;
+  padding: 48px;
+  color: #E62738;
+  font-size: 16px;
+}
+
+/* Tabela */
+.tabela-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #C1C1C1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background-color: #FFFFFF;
+}
+
+.tabela thead {
+  background-color: #E62738;
+}
+
+.tabela thead th {
+  padding: 14px 16px;
+  text-align: left;
+  color: #FFFFFF;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.tabela tbody tr {
+  border-bottom: 1px solid #C1C1C1;
+  transition: background-color 0.2s;
+}
+
+.tabela tbody tr:hover {
+  filter: brightness(0.96);
+}
+
+/* Linhas coloridas por tipo */
+.linha-negativa {
+  background-color: #fdecea;
+}
+
+.linha-zero {
+  background-color: #fef9e7;
+}
+
+.tabela tbody td {
+  padding: 12px 16px;
+  color: #2D3438;
+}
+
+/* Badge de diferença */
+.badge-negativo {
+  color: #E62738;
+  font-weight: 700;
+}
+
+.badge-zero {
+  color: #f0a500;
+  font-weight: 700;
+}
+
+/* Rodapé com contagem */
+.home-rodape {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #8C8C8C;
+  text-align: right;
+}
+
+.cronometro {
+  font-weight: 700;
+  color: #79161f;
+  font-variant-numeric: tabular-nums;
+  animation: piscar 1s  ease infinite;
+}
+
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+
+/* header section */
+/* header */
+.cabeca-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0 3rem;
+  height: 70px;
+  background: linear-gradient(135deg, #E72537 0%, #c41e2e 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease, height 0.3s ease;
+  animation: header-slide-down 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.App-link {
-  color: #61dafb;
+.cabeca-header.scrolled {
+  box-shadow: 0 4px 30px rgba(231, 37, 55, 0.4);
+  height: 60px;
 }
 
-@keyframes App-logo-spin {
+@keyframes header-slide-down {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-100%);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+.cabeca-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fade-in 0.5s ease 0.2s both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.cabeca-logo {
+  height: 40px;
+  width: auto;
+  /* filter: brightness(0) invert(1); */
+  transition: transform 0.3s ease;
+}
+
+.cabeca-logo:hover {
+  transform: scale(1.05);
+}
+
+.cabeca-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.cabeca-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cabeca-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cabeca-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: fade-in-right 0.5s ease 0.3s both;
+}
+
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.cabeca-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+.cabeca-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.cabeca-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.cabeca-link:hover svg {
+  transform: scale(1.1);
+}
+
+.cabeca-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cabeca-link-login {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.cabeca-link-login:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.cabeca-link-logout {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: fit-content;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cabeca-link-logout:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+/* end header */
+/* end header */
