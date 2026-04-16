@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Pages/home';
+import A from './Pages/Ab';
+// import A from './Pages/A';
 
 const publicRoute = createBrowserRouter([{
   path: '/',
@@ -11,6 +12,7 @@ const publicRoute = createBrowserRouter([{
   children: [
     { path: '/', element: <Home /> },
     { path: '/home', element: <Home /> },
+    { path: '/a', element: <A /> },
     // { path: '/login', element: <Login /> },
     // { path: '/*', element: <ErrorPage /> },
     // { path: '/loading', element: <Loading /> },
@@ -22,7 +24,7 @@ const protectedRoute = createBrowserRouter([{
   element: <App />,
   children: [
     { path: '/', element: <Home /> },
-    { path: '/home', element: <Home /> },
+    { path: '/a', element: <A /> },
     // { path: '/users', element: <Jobs /> },
     // { path: '/users/:id', element: <UserDetails /> },
     // { path: '/jobs/:obsId', element: <JobDetail /> },

@@ -6,7 +6,7 @@ const INTERVALO = 2 * 60;
 const ALTURA_RESERVADA_VH = 12;
 const ALTURA_THEAD_VH = 4;
 
-function Home() {
+function A() {
     const [dados, setDados] = useState([]);
     const [loading, setLoading] = useState(true);
     const [erro, setErro] = useState(null);
@@ -160,4 +160,4 @@ const formatarNumero = (valor, cod, comUnidade = false) => {
     );
 }
 
-export default Home;
+export default A;
