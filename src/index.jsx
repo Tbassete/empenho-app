@@ -13,9 +13,7 @@ const publicRoute = createBrowserRouter([{
     { path: '/', element: <Home /> },
     { path: '/home', element: <Home /> },
     { path: '/a', element: <A /> },
-    // { path: '/login', element: <Login /> },
-    // { path: '/*', element: <ErrorPage /> },
-    // { path: '/loading', element: <Loading /> },
+
   ]
 }])
 
@@ -25,14 +23,6 @@ const protectedRoute = createBrowserRouter([{
   children: [
     { path: '/', element: <Home /> },
     { path: '/a', element: <A /> },
-    // { path: '/users', element: <Jobs /> },
-    // { path: '/users/:id', element: <UserDetails /> },
-    // { path: '/jobs/:obsId', element: <JobDetail /> },
-    // { path: '/newuser', element: <NewUser /> },
-    // { path: '/logout', element: <Logout /> },
-    // { path: '/NewJob', element: <NewJob /> },
-    // { path: '/*', element: <ErrorPage /> },
-    // { path: '/criterios', element: <Criterios /> },
   ]
 }])
 

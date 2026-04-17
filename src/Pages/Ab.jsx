@@ -51,7 +51,7 @@ const formatarNumero = (valor, cod, comUnidade = false) => {
     };
 
     const fetchDados = useCallback(() => {
-        axios.get('http://172.26.0.131:3004/consulta-d4b2')
+        axios.get('http://172.26.50.4:3004/consulta-d4b2')
             .then(res => {
                 const filtrados = res.data
                     .filter(item => item.xDIFERENCA <= 0)
